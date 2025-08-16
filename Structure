@@ -1,0 +1,50 @@
+portfolio-website/
+│
+├── index.html                 # Main portfolio website
+├── README.md                  # Repository documentation
+├── LICENSE                    # MIT License file
+├── .gitignore                # Git ignore file
+│
+├── assets/
+│   ├── css/
+│   │   ├── styles.css        # Main stylesheet (extracted from index.html)
+│   │   └── responsive.css    # Additional responsive styles
+│   ├── js/
+│   │   ├── script.js         # Main JavaScript functionality
+│   │   └── animations.js     # Animation scripts
+│   ├── images/
+│   │   ├── profile.jpg       # Professional headshot
+│   │   ├── projects/         # Project screenshots
+│   │   └── icons/            # Custom icons
+│   └── fonts/                # Custom fonts (if needed)
+│
+├── projects/
+│   ├── ai-chatbot/
+│   │   ├── README.md         # Project documentation
+│   │   └── demo/             # Demo files
+│   ├── retail-dashboard/
+│   │   ├── README.md
+│   │   └── screenshots/
+│   ├── digicare-health/
+│   │   ├── README.md
+│   │   └── mockups/
+│   ├── iot-monitoring/
+│   │   ├── README.md
+│   │   └── schematics/
+│   └── crime-analysis/
+│       ├── README.md
+│       └── visualizations/
+│
+├── resume/
+│   ├── Avinash_Nagaraja_Resume.pdf
+│   ├── Avinash_Resume_Amazon.pdf
+│   └── Avinash_Resume_Personify.pdf
+│
+├── docs/
+│   ├── deployment.md         # Deployment instructions
+│   ├── customization.md      # Customization guide
+│   └── changelog.md          # Version history
+│
+└── tests/
+    ├── html-validator.js     # HTML validation tests
+    └── performance.js        # Performance testing
