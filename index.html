@@ -5,463 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avinash Vishala Nagaraja - Business Analyst & Data Engineer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1e3a5f;
-            --secondary-color: #2c5aa0;
-            --accent-color: #4a90a4;
-            --light-gray: #f8f9fa;
-            --medium-gray: #6c757d;
-            --dark-gray: #343a40;
-            --white: #ffffff;
-            --text-dark: #2c3e50;
-            --gradient: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--light-gray);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--gradient);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: var(--white);
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--gradient);
-            color: var(--white);
-            padding: 120px 0 80px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero .summary {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            opacity: 0.8;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--white);
-            color: var(--primary-color);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Section Styling */
-        .section {
-            padding: 60px 0;
-        }
-
-        .section:nth-child(even) {
-            background: var(--white);
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--accent-color);
-        }
-
-        /* Experience Cards */
-        .experience-grid {
-            display: grid;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .experience-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 4px solid var(--accent-color);
-            transition: transform 0.3s ease;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .experience-title {
-            flex: 1;
-        }
-
-        .experience-title h3 {
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .company-location {
-            color: var(--medium-gray);
-            font-size: 0.95rem;
-        }
-
-        .experience-date {
-            background: var(--light-gray);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: var(--medium-gray);
-            white-space: nowrap;
-        }
-
-        .experience-achievements {
-            list-style: none;
-        }
-
-        .experience-achievements li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            line-height: 1.6;
-        }
-
-        .experience-achievements li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-size: 0.8rem;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-category i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .skill-tag {
-            background: var(--light-gray);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: var(--medium-gray);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-header {
-            background: var(--gradient);
-            color: var(--white);
-            padding: 1.5rem;
-        }
-
-        .project-header h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            background: var(--accent-color);
-            color: var(--white);
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-        }
-
-        /* Education & Certifications */
-        .education-cert-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .education-item, .cert-item {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
-        }
-
-        .education-item h4, .cert-item h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-item .degree {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .education-item .gpa {
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--gradient);
-            color: var(--white);
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .contact-item {
-            padding: 1rem;
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        .contact-item h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .education-cert-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -474,6 +18,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="menu-toggle">
@@ -727,41 +272,195 @@
     <!-- Education Section -->
     <section id="education" class="section">
         <div class="container">
-            <h2>Education & Certifications</h2>
-            <div class="education-cert-grid">
-                <div>
-                    <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Education</h3>
-                    <div class="education-item">
-                        <h4>University at Buffalo, SUNY</h4>
-                        <div class="degree">Masters in Management Information Systems</div>
-                        <p>Majors: Data Analytics and Product Management</p>
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <div class="education-item">
-                        <h4>Nitte Meenakshi Institute of Technology</h4>
-                        <div class="degree">Bachelor of Engineering in Information Science</div>
+                    <div class="education-content">
+                        <h3>University at Buffalo, SUNY</h3>
+                        <div class="degree">Masters in Management Information Systems</div>
+                        <p class="specialization">Majors: Data Analytics and Product Management</p>
+                        <div class="gpa">GPA: 3.88/4.0</div>
                     </div>
                 </div>
-                <div>
-                    <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Certifications</h3>
-                    <div class="cert-item">
-                        <h4>AWS Certified Solutions Architect - Associate</h4>
-                        <p>Cloud architecture design and implementation</p>
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-university"></i>
                     </div>
-                    <div class="cert-item">
-                        <h4>Professional Scrum Product Owner</h4>
-                        <p>Scrum framework and product ownership</p>
+                    <div class="education-content">
+                        <h3>Nitte Meenakshi Institute of Technology</h3>
+                        <div class="degree">Bachelor of Engineering in Information Science</div>
+                        <div class="gpa">GPA: 7.96/10.0</div>
                     </div>
-                    <div class="cert-item">
-                        <h4>Certificate of Cloud Security Knowledge (CCSK)</h4>
-                        <p>Cloud security fundamentals and compliance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2>Professional Certifications</h2>
+            <div class="certifications-grid">
+                <!-- Cloud Technologies -->
+                <div class="certification-category">
+                    <div class="category-header">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Technologies</h3>
                     </div>
-                    <div class="cert-item">
-                        <h4>Google Project Management Certificate</h4>
-                        <p>Project management methodologies and tools</p>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>AWS Certified Solutions Architect - Associate</h4>
+                                <p class="cert-provider">Amazon Web Services</p>
+                                <p class="cert-description">Demonstrated expertise in designing scalable, secure, and cost-optimized cloud architectures using AWS services.</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Azure Fundamentals (AZ-900)</h4>
+                                <p class="cert-provider">Microsoft</p>
+                                <p class="cert-description">Proficiency in Microsoft Azure cloud services, including cloud concepts, core services, security, and compliance.</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Certificate of Cloud Security Knowledge v.4 (CCSK)</h4>
+                                <p class="cert-provider">Cloud Security Alliance</p>
+                                <p class="cert-description">Proficient in cloud security fundamentals, risk assessment, governance, and compliance across cloud platforms.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cert-item">
-                        <h4>Azure Fundamentals (AZ-900)</h4>
-                        <p>Microsoft Azure cloud services</p>
+                </div>
+
+                <!-- Project Management -->
+                <div class="certification-category">
+                    <div class="category-header">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>Project Management</h3>
+                    </div>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Professional Scrum Product Owner</h4>
+                                <p class="cert-provider">Scrum.org</p>
+                                <p class="cert-description">Acquired knowledge of the Scrum framework, focusing on product ownership responsibilities, backlog management, and value-driven development principles.</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Google Project Management Certificate</h4>
+                                <p class="cert-provider">Google via Coursera</p>
+                                <p class="cert-description">Comprehensive project management training covering methodologies, tools, and best practices for successful project delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Analytics & Business Intelligence -->
+                <div class="certification-category">
+                    <div class="category-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Data Analytics & BI</h3>
+                    </div>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Power BI Specialist</h4>
+                                <p class="cert-provider">Udemy</p>
+                                <p class="cert-description">Hands-on experience in creating interactive dashboards, data visualization, and business intelligence reports using Power BI.</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Tableau Specialist</h4>
+                                <p class="cert-provider">Udemy</p>
+                                <p class="cert-description">Developed expertise in designing data visualizations, dashboards, and stories to derive insights from data using Tableau.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Technologies -->
+                <div class="certification-category">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Enterprise Technologies</h3>
+                    </div>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Information Storage and Management</h4>
+                                <p class="cert-provider">Dell Technologies</p>
+                                <p class="cert-description">Gained comprehensive knowledge of storage systems, data protection, and management in enterprise IT environments.</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-hdd"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Specialist - Midrange Storage Solutions</h4>
+                                <p class="cert-provider">Dell Technologies</p>
+                                <p class="cert-description">Specialized in designing and managing midrange storage solutions with emphasis on performance optimization and scalability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic & Research -->
+                <div class="certification-category">
+                    <div class="category-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Academic & Research</h3>
+                    </div>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Cloud Computing</h4>
+                                <p class="cert-provider">NPTEL - IIT Kharagpur</p>
+                                <p class="cert-description">Acquired in-depth knowledge of cloud computing concepts, architectures, and services, certified by IIT Kharagpur.</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Certified Course Associate - Networking 1.0</h4>
+                                <p class="cert-provider">Dell Technologies</p>
+                                <p class="cert-description">Built foundational skills in networking, including protocols, topology, and network troubleshooting.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -796,7 +495,7 @@
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Location</h3>
-                    <p>Buffalo, NY, USA</p>
+                    <p>Buffalo, NY, USA<br><small>Open to relocation</small></p>
                 </div>
             </div>
         </div>
@@ -844,7 +543,7 @@
         }, observerOptions);
 
         // Observe all cards and sections
-        document.querySelectorAll('.experience-card, .skill-category, .project-card, .education-item, .cert-item').forEach(el => {
+        document.querySelectorAll('.experience-card, .skill-category, .project-card, .education-item, .cert-item, .certification-category').forEach(el => {
             observer.observe(el);
         });
     </script>
