@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avinash Vishala Nagaraja - Business Analyst & Data Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #2c5aa0;
+            --accent-color: #4a90a4;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --gradient: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--gradient);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .summary {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--white);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .experience-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            flex: 1;
+        }
+
+        .experience-title h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-location {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        .experience-date {
+            background: var(--light-gray);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            white-space: nowrap;
+        }
+
+        .experience-achievements {
+            list-style: none;
+        }
+
+        .experience-achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .experience-achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: var(--light-gray);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Education & Certifications */
+        .education-cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .education-item, .cert-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .education-item h4, .cert-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .degree {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-item .gpa {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--gradient);
+            color: var(--white);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .education-cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Avinash Nagaraja</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Avinash Vishala Nagaraja</h1>
+            <p class="subtitle">Business Analyst & Data Engineer</p>
+            <p class="summary">
+                Results-driven Business Analyst with 4+ years of experience transforming complex data into actionable insights. 
+                Proven expertise in data migration, SaaS integration, and developing analytical dashboards using cutting-edge technologies.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+                <a href="https://www.linkedin.com/in/avinashvn31" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn Profile
+                </a>
+                <a href="https://github.com/Avinash-VN/Avinash-VN" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i>
+                    GitHub Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-grid">
+                <!-- New Era Cap -->
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>IT Business Analyst</h3>
+                            <p class="company-location">New Era Cap, Buffalo, USA</p>
+                        </div>
+                        <div class="experience-date">September 2023 - Present</div>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Led 25+ eCommerce projects, improving customer experience through data-driven insights</li>
+                        <li>Engineered Snowflake data models converting normalized SAP ECC tables into star schemas</li>
+                        <li>Built customer risk detection dashboards in Power BI, increasing risk visibility</li>
+                        <li>Optimized Azure Data Factory pipelines, reducing error rates by 90% and increasing data accuracy by 50%</li>
+                        <li>Created stored procedures and Python scripts processing 2M+ records weekly</li>
+                        <li>Developed real-time automated metrics dashboards for global revenue monitoring</li>
+                        <li>Led data migration project from SAP ECC utilizing Fivetran, Snowflake, and At-Scale</li>
+                    </ul>
+                </div>
+
+                <!-- Dell Technologies -->
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Solution Architect - Product Specialist</h3>
+                            <p class="company-location">Dell Technologies, Bangalore, India</p>
+                        </div>
+                        <div class="experience-date">January 2020 - August 2022</div>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Delivered end-to-end SaaS solutions for enterprise clients with C-suite presentations</li>
+                        <li>Identified 100+ digital transformation opportunities through Tableau and Excel analysis</li>
+                        <li>Optimized data center architecture, boosting storage and performance efficiency by 25%</li>
+                        <li>Mentored 20+ associate engineers, enhancing performance metrics by 40%</li>
+                        <li>Conducted 50+ product demos with 70% technical win rate</li>
+                        <li>Developed interactive Excel dashboard with VBA, adopted across all regions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Analytics & Visualization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">SSRS</span>
+                        <span class="skill-tag">Google Data Studio</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <i class="fas fa-database"></i>
+                    <h3>Databases & Data Processing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">SSMS</span>
+                        <span class="skill-tag">Fivetran</span>
+                        <span class="skill-tag">At-Scale</span>
+                        <span class="skill-tag">Talend</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Snowflake</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <i class="fas fa-code"></i>
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">VBA</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Business Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SAP ECC</span>
+                        <span class="skill-tag">SAP ERP</span>
+                        <span class="skill-tag">Salesforce CRM</span>
+                        <span class="skill-tag">Shopify</span>
+                        <span class="skill-tag">O365</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Project Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">Scrum</span>
+                        <span class="skill-tag">User Stories</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Personal AI Chatbot</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Architected a GenAI chatbot using Falcon LLM and Retrieval-Augmented Generation (RAG) for personalized Q&A. Built intuitive user interface with Gradio for enhanced user experience.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Falcon LLM</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Qdrant</span>
+                            <span class="tech-tag">Gradio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Retail Dashboard</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Modernized reporting system by transitioning from manual PDF and Excel reports to an interactive Power BI dashboard, featuring automated reporting and advanced visualizations.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>DigiCare: NFC Health Records</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Mobile application utilizing NFC technology for health record management, featuring personalized digital vault, hospital information, emergency services, and health monitoring.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Mobile Development</span>
+                            <span class="tech-tag">NFC</span>
+                            <span class="tech-tag">Health Tech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>IoT Temperature Monitoring</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Engineered an IoT-based monitoring system with real-time data transmission via MQTT to AWS IoT Core, implementing AWS Lambda for data processing with responsive web interface.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">AWS IoT Core</span>
+                            <span class="tech-tag">MQTT</span>
+                            <span class="tech-tag">Lambda</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Crime Trends Analysis</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Analyzed crime trends in India by state and specific crimes, comparing with population data. Created interactive Tableau dashboard for comprehensive visualization.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Statistical Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>HR Analytics Dashboard</h3>
+                    </div>
+                    <div class="project-content">
+                        <p>Interactive visualization of key HR metrics facilitating informed decision-making, featuring workforce analysis, turnover insights, diversity metrics, and performance tracking.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">HR Analytics</span>
+                            <span class="tech-tag">Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2>Education & Certifications</h2>
+            <div class="education-cert-grid">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Education</h3>
+                    <div class="education-item">
+                        <h4>University at Buffalo, SUNY</h4>
+                        <div class="degree">Masters in Management Information Systems</div>
+                        <p>Majors: Data Analytics and Product Management</p>
+                        <div class="gpa">GPA: 3.88/4.0</div>
+                    </div>
+                    <div class="education-item">
+                        <h4>Nitte Meenakshi Institute of Technology</h4>
+                        <div class="degree">Bachelor of Engineering in Information Science</div>
+                        <div class="gpa">GPA: 7.96/10.0</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Certifications</h3>
+                    <div class="cert-item">
+                        <h4>AWS Certified Solutions Architect - Associate</h4>
+                        <p>Cloud architecture design and implementation</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Professional Scrum Product Owner</h4>
+                        <p>Scrum framework and product ownership</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Certificate of Cloud Security Knowledge (CCSK)</h4>
+                        <p>Cloud security fundamentals and compliance</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Google Project Management Certificate</h4>
+                        <p>Project management methodologies and tools</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Azure Fundamentals (AZ-900)</h4>
+                        <p>Microsoft Azure cloud services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <h2 style="color: var(--white);">Let's Connect</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:avinashvn.31@gmail.com">avinashvn.31@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+17168083354">(716) 808-3354</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/avinashvn31" target="_blank">linkedin.com/in/avinashvn31</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Avinash-VN/Avinash-VN" target="_blank">github.com/Avinash-VN</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Buffalo, NY, USA<br><small>Open to relocation</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(30, 58, 95, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'var(--gradient)';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.experience-card, .skill-category, .project-card, .education-item, .cert-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
