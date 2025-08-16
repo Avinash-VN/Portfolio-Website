@@ -1,0 +1,54 @@
+{
+  "name": "avinash-nagaraja-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Avinash Nagaraja - Business Analyst & Data Engineer",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "build": "echo 'No build process needed for static site'",
+    "test": "html-validate index.html && lighthouse-ci autorun",
+    "deploy": "gh-pages -d .",
+    "validate": "html-validate *.html",
+    "optimize": "imagemin assets/images/* --out-dir=assets/images/optimized"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/portfolio-website.git"
+  },
+  "keywords": [
+    "portfolio",
+    "business-analyst",
+    "data-engineer",
+    "web-development",
+    "professional-website",
+    "resume",
+    "data-analytics",
+    "tableau",
+    "power-bi",
+    "snowflake",
+    "azure",
+    "aws"
+  ],
+  "author": {
+    "name": "Avinash Vishala Nagaraja",
+    "email": "avinashvn.31@gmail.com",
+    "url": "https://linkedin.com/in/avinashvn31"
+  },
+  "license": "MIT",
+  "homepage": "https://yourusername.github.io/portfolio-website",
+  "devDependencies": {
+    "html-validate": "^7.18.0",
+    "lighthouse-ci": "^0.12.0",
+    "gh-pages": "^5.0.0",
+    "imagemin": "^8.0.1",
+    "serve": "^14.2.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
