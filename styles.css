@@ -647,7 +647,7 @@ nav .container {
 }
 
 .contact-item a {
-    color: var(--white);
+    color: var(--blue);
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 500;
