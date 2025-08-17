@@ -613,8 +613,8 @@ nav .container {
    CONTACT SECTION
    =========================== */
 .contact {
-    background: var(--gradient);
-    color: var(--blue);
+    background: var(--blue);
+    color: var(--white);
 }
 
 .contact-info {
