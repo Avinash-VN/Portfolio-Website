@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Avinash Nagaraja</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-red: #dc3545;
+            --primary-blue: #0d6efd;
+            --dark-blue: #1e3a5f;
+            --primary-black: #2c2c2c;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            padding-top: 80px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--gradient);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 80px 0 60px;
+            background: var(--light-gray);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            padding: 40px 0;
+            background: var(--white);
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: 2px solid var(--primary-blue);
+            background: transparent;
+            color: var(--primary-blue);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            padding: 40px 0 80px;
+            background: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.4s; }
+        .project-card:nth-child(4) { animation-delay: 0.6s; }
+        .project-card:nth-child(5) { animation-delay: 0.8s; }
+        .project-card:nth-child(6) { animation-delay: 1s; }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 250px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon fill="rgba(255,255,255,0.1)" points="0,0 100,30 100,100 0,70"/></svg>');
+        }
+
+        .project-image i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.8);
+            z-index: 2;
+            position: relative;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .project-features {
+            margin-bottom: 2rem;
+        }
+
+        .project-features h4 {
+            color: var(--primary-blue);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-tag {
+            background: var(--light-gray);
+            color: var(--primary-blue);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(13, 110, 253, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 10px 20px;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-btn:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .project-btn.secondary {
+            border-color: var(--primary-red);
+            color: var(--primary-red);
+        }
+
+        .project-btn.secondary:hover {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        /* Project Categories */
+        .project-card[data-category="ai"] .project-image {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+        }
+
+        .project-card[data-category="dashboard"] .project-image {
+            background: linear-gradient(135deg, var(--primary-red) 0%, #fd79a8 100%);
+        }
+
+        .project-card[data-category="mobile"] .project-image {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        }
+
+        .project-card[data-category="iot"] .project-image {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+        }
+
+        .project-card[data-category="analytics"] .project-image {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-content {
+                padding: 2rem;
+            }
+
+            .tabs-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Avinash Nagaraja</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">My Projects</h1>
+            <p class="page-subtitle">Innovative solutions that make a difference</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="filter-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="filterProjects('all')">All Projects</button>
+                <button class="tab-btn" onclick="filterProjects('ai')">AI & ML</button>
+                <button class="tab-btn" onclick="filterProjects('dashboard')">Dashboards</button>
+                <button class="tab-btn" onclick="filterProjects('mobile')">Mobile Apps</button>
+                <button class="tab-btn" onclick="filterProjects('iot')">IoT</button>
+                <button class="tab-btn" onclick="filterProjects('analytics')">Analytics</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid" id="projectsGrid">
+                <!-- AI Project -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Personal AI Chatbot</h3>
+                        <p class="project-description">
+                            Architected a GenAI chatbot using Falcon LLM and Retrieval-Augmented Generation (RAG) 
+                            for personalized Q&A experiences with an intuitive Gradio interface.
+                        </p>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul class="features-list">
+                                <li>Natural language processing with Falcon LLM</li>
+                                <li>RAG implementation for contextual responses</li>
+                                <li>Vector database integration with Qdrant</li>
+                                <li>Interactive web interface with Gradio</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Falcon LLM</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Qdrant</span>
+                            <span class="tech-tag">Gradio</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-btn secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Project -->
+                <div class="project-card" data-category="dashboard">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Retail Analytics Dashboard</h3>
+                        <p class="project-description">
+                            Modernized reporting by transitioning from manual PDF/Excel reports to an interactive 
+                            Power BI dashboard with automated reporting and advanced visualizations.
+                        </p>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul class="features-list">
+                                <li>Real-time sales and inventory tracking</li>
+                                <li>Automated report generation</li>
+                                <li>Interactive data visualizations</li>
+                                <li>Performance KPI monitoring</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Excel</span>
+                            <span class="tech-tag">DAX</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn">
+                                <i class="fas fa-eye"></i>
+                                View Dashboard
+                            </a>
+                            <a href="#" class="project-btn secondary">
+                                <i class="fas fa-download"></i>
+                                Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Project -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">DigiCare: NFC Health Records</h3>
+                        <p class="project-description">
+                            Mobile application utilizing NFC technology for seamless health record management, 
+                            featuring personalized digital vault and emergency services integration.
+                        </p>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul class="features-list">
+                                <li>NFC-enabled health record storage</li>
+                                <li>Emergency contact integration</li>
+                                <li>Hospital information system</li>
+                                <li>Secure personal health vault</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">NFC</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Healthcare APIs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-btn secondary">
+                                <i class="fas fa-play"></i>
+                                Demo Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IoT Project -->
+                <div class="project-card" data-category="iot">
+                    <div class="project-image">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">IoT Temperature Monitoring</h3>
+                        <p class="project-description">
+                            Engineered an IoT-based monitoring system with real-time data transmission via MQTT 
+                            to AWS IoT Core, implementing serverless data processing with responsive web interface.
+                        </p>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul class="features-list">
+                                <li>Real-time temperature sensors</li>
+                                <li>MQTT protocol for data transmission</li>
+                                <li>AWS IoT Core integration</li>
+                                <li>Serverless data processing</li>
+                                <li>Web-based monitoring dashboard</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">AWS IoT Core</span>
+                            <span class="tech-tag">MQTT</span>
+                            <span class="tech-tag">Lambda</span>
+                            <span class="tech-tag">DynamoDB</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                            <a href="#" class="project-btn secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Project -->
+                <div class="project-card" data-category="analytics">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Crime Trends Analysis</h3>
+                        <p class="project-description">
+                            Comprehensive analysis of crime trends in India by state and specific crimes, 
+                            comparing with population data and creating interactive visualizations for insights.
+                        </p>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul class="features-list">
+                                <li>State-wise crime trend analysis</li>
+                                <li>Population correlation studies</li>
+                                <li>Interactive Tableau dashboard</li>
+                                <li>Statistical significance testing</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Statistical Analysis</span>
+                            <span class="tech-tag">Data Visualization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn">
+                                <i class="fas fa-eye"></i>
+                                View Dashboard
+                            </a>
+                            <a href="#" class="project-btn secondary">
+                                <i class="fab fa-github"></i>
+                                Analysis Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HR Analytics Project -->
+                <div class="project-card" data-category="dashboard analytics">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">HR Analytics Dashboard</h3>
+                        <p class="project-description">
+                            Interactive visualization platform for key HR metrics facilitating data-driven decision-making, 
+                            featuring workforce analysis, turnover insights, and performance tracking.
+                        </p>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul class="features-list">
+                                <li>Employee performance tracking</li>
+                                <li>Turnover rate analysis</li>
+                                <li>Diversity and inclusion metrics</li>
+                                <li>Recruitment funnel visualization</li>
+                                <li>Predictive analytics for retention</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">HR Analytics</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Data Modeling</span>
+                            <span class="tech-tag">Predictive Analytics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn">
+                                <i class="fas fa-eye"></i>
+                                View Dashboard
+                            </a>
+                            <a href="#" class="project-btn secondary">
+                                <i class="fas fa-download"></i>
+                                Project Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/Avinash-VN/Avinash-VN" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/avinashvn31" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://instagram.com/yourusername" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:avinashvn.31@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Avinash Nagaraja. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const tabs = document.querySelectorAll('.tab-btn');
+            
+            // Remove active class from all tabs
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category.includes(category)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(50px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Add scroll effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    nav.style.background = 'rgba(13, 110, 253, 0.95)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                } else {
+                    nav.style.background = 'var(--gradient)';
+                    nav.style.backdropFilter = 'none';
+                }
+            });
+
+            // Animate project cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe project cards that are initially hidden
+            document.querySelectorAll('.project-card').forEach((card, index) => {
+                if (index > 2) { // Only animate cards beyond the first row
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(50px)';
+                    card.style.transition = `all 0.6s ease ${(index - 3) * 0.1}s`;
+                    observer.observe(card);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

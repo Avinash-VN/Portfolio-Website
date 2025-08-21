@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Avinash Nagaraja</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-red: #dc3545;
+            --primary-blue: #0d6efd;
+            --dark-blue: #1e3a5f;
+            --primary-black: #2c2c2c;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            padding-top: 80px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--gradient);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 80px 0 60px;
+            background: var(--light-gray);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .about-content {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--gradient);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(13, 110, 253, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="20" fill="rgba(255,255,255,0.3)"/><circle cx="50" cy="75" r="35" fill="rgba(255,255,255,0.2)"/></svg>');
+        }
+
+        .profile-image i {
+            font-size: 120px;
+            color: rgba(255,255,255,0.8);
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .bio-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-black);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .bio-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-red);
+            border-radius: 2px;
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .bio-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Experience Timeline */
+        .experience-timeline {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-black);
+            font-weight: 700;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-blue);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.6s; }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -30px;
+            border-left-color: var(--white);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -30px;
+            border-right-color: var(--white);
+        }
+
+        .timeline-icon {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            z-index: 2;
+            border: 4px solid var(--white);
+        }
+
+        .timeline-icon i {
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .timeline-date {
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Personal Values */
+        .values-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .value-card:nth-child(2) {
+            border-top-color: var(--primary-red);
+        }
+
+        .value-card:nth-child(3) {
+            border-top-color: var(--primary-blue);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .value-card i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card:nth-child(2) i {
+            color: var(--primary-red);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+            font-weight: 600;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+
+            .timeline-icon {
+                left: 30px;
+                transform: none;
+            }
+
+            .timeline-content::before {
+                left: -30px !important;
+                right: auto !important;
+                border-right-color: var(--white) !important;
+                border-left-color: transparent !important;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .bio-section h2 {
+                font-size: 2rem;
+            }
+
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Avinash Nagaraja</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">About Me</h1>
+            <p class="page-subtitle">Get to know the person behind the data</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Countries Lived</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bio-section">
+                    <h2>My Journey</h2>
+                    <div class="bio-text">
+                        <p>
+                            Hello! I'm <span class="highlight">Avinash Nagaraja</span>, a passionate Business Analyst and Data Engineer 
+                            with over 4 years of experience transforming complex data into actionable business insights. 
+                            My journey began in Bangalore, India, where I discovered my love for technology and data analytics.
+                        </p>
+                        <p>
+                            Currently based in <span class="highlight">Buffalo, New York</span>, I work as an IT Business Analyst 
+                            at New Era Cap, where I lead eCommerce projects and engineer data solutions that directly impact 
+                            business outcomes. My expertise spans across <span class="highlight">cloud platforms</span>, 
+                            <span class="highlight">data visualization tools</span>, and <span class="highlight">enterprise systems</span>.
+                        </p>
+                        <p>
+                            What drives me is the ability to bridge the gap between technical complexity and business value. 
+                            I believe that the best solutions come from understanding not just the 'how' but the 'why' behind 
+                            every data point and business requirement.
+                        </p>
+                        <p>
+                            Beyond my professional life, I'm an avid cricket enthusiast and passionate traveler. 
+                            These hobbies have taught me valuable lessons about teamwork, strategy, cultural awareness, 
+                            and adaptability that I bring into my professional work every day.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="experience-timeline">
+        <div class="container">
+            <h2 class="section-title">Career Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">September 2023 - Present</div>
+                        <h3 class="timeline-title">IT Business Analyst</h3>
+                        <p class="timeline-company">New Era Cap, Buffalo, USA</p>
+                        <p class="timeline-description">
+                            Leading 25+ eCommerce projects and engineering Snowflake data models. 
+                            Built customer risk detection dashboards and optimized Azure Data Factory pipelines, 
+                            reducing error rates by 90%.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">August 2022 - May 2023</div>
+                        <h3 class="timeline-title">Master's in MIS</h3>
+                        <p class="timeline-company">University at Buffalo, SUNY</p>
+                        <p class="timeline-description">
+                            Focused on Data Analytics and Product Management. Achieved 3.88/4.0 GPA while 
+                            developing expertise in advanced analytics, project management, and enterprise systems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2020 - August 2022</div>
+                        <h3 class="timeline-title">Solution Architect - Product Specialist</h3>
+                        <p class="timeline-company">Dell Technologies, Bangalore, India</p>
+                        <p class="timeline-description">
+                            Delivered end-to-end SaaS solutions for enterprise clients. Identified 100+ digital 
+                            transformation opportunities and optimized data center architecture, boosting efficiency by 25%.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016 - 2020</div>
+                        <h3 class="timeline-title">Bachelor of Engineering</h3>
+                        <p class="timeline-company">Nitte Meenakshi Institute of Technology</p>
+                        <p class="timeline-description">
+                            Information Science Engineering with a focus on software development and data structures. 
+                            Built foundation in programming, database management, and system design.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Values -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Core Values & Principles</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>
+                        Constantly seeking creative solutions and embracing new technologies to solve 
+                        complex business challenges. I believe innovation comes from curiosity and 
+                        the willingness to experiment.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Collaboration</h3>
+                    <p>
+                        Strong believer in the power of teamwork. The best solutions emerge when 
+                        diverse minds work together, combining technical expertise with business acumen 
+                        and user insights.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Continuous Growth</h3>
+                    <p>
+                        Committed to lifelong learning and professional development. In the rapidly 
+                        evolving tech landscape, staying current with new tools, methodologies, 
+                        and industry best practices is essential.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/Avinash-VN/Avinash-VN" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/avinashvn31" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://instagram.com/yourusername" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:avinashvn.31@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Avinash Nagaraja. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add scroll effects and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    nav.style.background = 'rgba(13, 110, 253, 0.95)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                } else {
+                    nav.style.background = 'var(--gradient)';
+                    nav.style.backdropFilter = 'none';
+                }
+            });
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe value cards
+            document.querySelectorAll('.value-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `all 0.6s ease ${index * 0.2}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

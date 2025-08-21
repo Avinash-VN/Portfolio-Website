@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Avinash Nagaraja</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-red: #dc3545;
+            --primary-blue: #0d6efd;
+            --dark-blue: #1e3a5f;
+            --primary-black: #2c2c2c;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            --accent-green: #28a745;
+            --accent-purple: #6f42c1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            padding-top: 80px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--gradient);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 80px 0 60px;
+            background: var(--light-gray);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Skills Overview */
+        .skills-overview {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .stat-card:nth-child(2) { border-top-color: var(--primary-red); }
+        .stat-card:nth-child(3) { border-top-color: var(--accent-green); }
+        .stat-card:nth-child(4) { border-top-color: var(--accent-purple); }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card:nth-child(2) .stat-number { color: var(--primary-red); }
+        .stat-card:nth-child(3) .stat-number { color: var(--accent-green); }
+        .stat-card:nth-child(4) .stat-number { color: var(--accent-purple); }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Technical Skills */
+        .technical-skills {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-black);
+            font-weight: 700;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .skill-category:nth-child(2n) {
+            border-left-color: var(--primary-red);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .skill-category:nth-child(2n) .category-icon {
+            background: var(--primary-red);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-black);
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-info {
+            flex: 1;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: var(--primary-black);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-level {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+            margin-left: 1rem;
+        }
+
+        .skill-bar {
+            background: #e9ecef;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-blue);
+            border-radius: 10px;
+            transition: width 1.5s ease;
+            position: relative;
+        }
+
+        .skill-category:nth-child(2n) .skill-progress {
+            background: var(--primary-red);
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        /* Professional Skills - Enhanced */
+        .professional-skills {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .soft-skills-section {
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .subsection-title {
+            font-size: 2rem;
+            color: var(--primary-black);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .soft-skill-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .soft-skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-blue);
+        }
+
+        .soft-skill-card:nth-child(2n)::before { background: var(--primary-red); }
+        .soft-skill-card:nth-child(3n)::before { background: var(--accent-green); }
+        .soft-skill-card:nth-child(4n)::before { background: var(--accent-purple); }
+
+        .soft-skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary-blue);
+        }
+
+        .soft-skill-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .soft-skill-card:nth-child(2n) .soft-skill-icon { background: var(--primary-red); }
+        .soft-skill-card:nth-child(3n) .soft-skill-icon { background: var(--accent-green); }
+        .soft-skill-card:nth-child(4n) .soft-skill-icon { background: var(--accent-purple); }
+
+        .soft-skill-card:hover .soft-skill-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .soft-skill-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+        }
+
+        .soft-skill-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        /* Project Management Skills */
+        .pm-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pm-skill-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .pm-skill-item:nth-child(2n) { border-left-color: var(--primary-red); }
+        .pm-skill-item:nth-child(3n) { border-left-color: var(--accent-green); }
+        .pm-skill-item:nth-child(4n) { border-left-color: var(--accent-purple); }
+
+        .pm-skill-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .pm-skill-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .pm-skill-item:nth-child(2n) .pm-skill-icon { background: var(--primary-red); }
+        .pm-skill-item:nth-child(3n) .pm-skill-icon { background: var(--accent-green); }
+        .pm-skill-item:nth-child(4n) .pm-skill-icon { background: var(--accent-purple); }
+
+        .pm-skill-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .pm-skill-content p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Tools & Technologies */
+        .tools-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--white);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tool-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .tool-item:nth-child(2n) .tool-icon { color: var(--primary-red); }
+        .tool-item:nth-child(3n) .tool-icon { color: var(--accent-green); }
+        .tool-item:nth-child(4n) .tool-icon { color: var(--accent-purple); }
+
+        .tool-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary-black);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .overview-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .soft-skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pm-skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Avinash Nagaraja</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html" class="active">Skills</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Skills & Expertise</h1>
+            <p class="page-subtitle">Technical proficiencies and professional capabilities</p>
+        </div>
+    </section>
+
+    <!-- Skills Overview -->
+    <section class="skills-overview">
+        <div class="container">
+            <div class="overview-stats">
+                <div class="stat-card">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Programming Languages</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">4+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="technical-skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <!-- Data Analytics & Visualization -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="category-title">Data Analytics & Visualization</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Snowflake</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Tableau</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Power BI</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">SSRS</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Proficient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database & ETL -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="category-title">Database & ETL</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">SQL Server</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Fivetran</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Azure Data Factory</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Talend</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Proficient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming Languages -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="category-title">Programming Languages</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">SQL</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="95"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Python</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">JavaScript</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Proficient</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">VBA</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Platforms -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="category-title">Cloud Platforms</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Azure</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">AWS</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-name">Google Cloud</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70"></div>
+                                </div>
+                            </div>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Skills - Enhanced -->
+    <section class="professional-skills">
+        <div class="container">
+            <h2 class="section-title">Professional Skills</h2>
+            
+            <div class="skills-container">
+                <!-- Soft Skills -->
+                <div class="soft-skills-section">
+                    <h3 class="subsection-title">Core Competencies</h3>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4 class="soft-skill-title">Problem Solving</h4>
+                            <p class="soft-skill-description">
+                                Analytical approach to identifying root causes and developing innovative solutions 
+                                for complex business challenges through data-driven insights.
+                            </p>
+                        </div>
+
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="soft-skill-title">Team Leadership</h4>
+                            <p class="soft-skill-description">
+                                Proven ability to mentor teams, manage cross-functional projects, and foster 
+                                collaborative environments that drive results and professional growth.
+                            </p>
+                        </div>
+
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4 class="soft-skill-title">Communication</h4>
+                            <p class="soft-skill-description">
+                                Strong presentation skills with experience delivering technical insights to 
+                                C-suite executives and translating complex data into actionable business recommendations.
+                            </p>
+                        </div>
+
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4 class="soft-skill-title">Business Analysis</h4>
+                            <p class="soft-skill-description">
+                                Expert in requirements gathering, process mapping, and stakeholder management 
+                                with focus on digital transformation and operational efficiency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Management Skills -->
+                <div class="soft-skills-section">
+                    <h3 class="subsection-title">Project Management</h3>
+                    <div class="pm-skills-grid">
+                        <div class="pm-skill-item">
+                            <div class="pm-skill-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="pm-skill-content">
+                                <h4>Project Planning</h4>
+                                <p>Strategic planning, resource allocation, timeline management, and risk assessment for successful project delivery.</p>
+                            </div>
+                        </div>
+
+                        <div class="pm-skill-item">
+                            <div class="pm-skill-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="pm-skill-content">
+                                <h4>User Story Development</h4>
+                                <p>Creating detailed user stories, acceptance criteria, and backlog management for agile development cycles.</p>
+                            </div>
+                        </div>
+
+                        <div class="pm-skill-item">
+                            <div class="pm-skill-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <div class="pm-skill-content">
+                                <h4>Requirements Gathering</h4>
+                                <p>Stakeholder interviews, process documentation, and functional specification development.</p>
+                            </div>
+                        </div>
+
+                        <div class="pm-skill-item">
+                            <div class="pm-skill-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="pm-skill-content">
+                                <h4>Agile & Scrum</h4>
+                                <p>Sprint planning, daily standups, retrospectives, and continuous improvement methodologies.</p>
+                            </div>
+                        </div>
+
+                        <div class="pm-skill-item">
+                            <div class="pm-skill-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="pm-skill-content">
+                                <h4>Stakeholder Management</h4>
+                                <p>Building relationships, managing expectations, and ensuring alignment across organizational levels.</p>
+                            </div>
+                        </div>
+
+                        <div class="pm-skill-item">
+                            <div class="pm-skill-icon">
+                                <i class="fas fa-chart-gantt"></i>
+                            </div>
+                            <div class="pm-skill-content">
+                                <h4>Process Optimization</h4>
+                                <p>Workflow analysis, automation implementation, and efficiency improvements reducing error rates by 90%.</p>
+                            </div>
+                        </div>
+
+                        <div class="pm-skill-item">
+                            <div class="pm-skill-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="pm-skill-content">
+                                <h4>Risk Management</h4>
+                                <p>Identifying potential risks, developing mitigation strategies, and ensuring project continuity.</p>
+                            </div>
+                        </div>
+
+                        <div class="pm-skill-item">
+                            <div class="pm-skill-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="pm-skill-content">
+                                <h4>Performance Tracking</h4>
+                                <p>KPI development, progress monitoring, and data-driven decision making for project success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Professional Skills -->
+            <div class="soft-skills-grid" style="margin-top: 3rem;">
+                <div class="soft-skill-card">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4 class="soft-skill-title">Digital Transformation</h4>
+                    <p class="soft-skill-description">
+                        Leading organizational change initiatives, technology adoption, and modernization projects 
+                        that enhance operational efficiency and competitive advantage.
+                    </p>
+                </div>
+
+                <div class="soft-skill-card">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4 class="soft-skill-title">Strategic Thinking</h4>
+                    <p class="soft-skill-description">
+                        Long-term planning, market analysis, and strategic decision-making that aligns 
+                        technology solutions with business objectives and growth initiatives.
+                    </p>
+                </div>
+
+                <div class="soft-skill-card">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="soft-skill-title">Continuous Learning</h4>
+                    <p class="soft-skill-description">
+                        Staying current with emerging technologies, industry trends, and best practices 
+                        through certifications, training, and professional development.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Technologies -->
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Tools & Technologies</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="tool-name">Office 365</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="tool-name">Tableau</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="tool-name">Power BI</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="tool-name">Python</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="tool-name">SQL Server</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="tool-name">AWS</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="tool-name">Azure</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <div class="tool-name">Snowflake</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="tool-name">Git</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="tool-name">GitHub</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="tool-name">Jira</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-confluence"></i>
+                    </div>
+                    <div class="tool-name">Confluence</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-slack"></i>
+                    </div>
+                    <div class="tool-name">Slack</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-trello"></i>
+                    </div>
+                    <div class="tool-name">Trello</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fab fa-salesforce"></i>
+                    </div>
+                    <div class="tool-name">Salesforce</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="tool-name">Shopify</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="tool-name">SAP ECC</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="tool-name">Fivetran</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="tool-name">Talend</div>
+                </div>
+
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="tool-name">MS Project</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/Avinash-VN/Avinash-VN" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/avinashvn31" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://instagram.com/yourusername" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:avinashvn.31@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Avinash Nagaraja. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            });
+        }
+
+        // Add scroll effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    nav.style.background = 'rgba(13, 110, 253, 0.95)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                } else {
+                    nav.style.background = 'var(--gradient)';
+                    nav.style.backdropFilter = 'none';
+                }
+            });
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        
+                        // Animate skill bars when they come into view
+                        if (entry.target.classList.contains('skill-category')) {
+                            const skillBars = entry.target.querySelectorAll('.skill-progress');
+                            skillBars.forEach(bar => {
+                                const width = bar.getAttribute('data-width');
+                                setTimeout(() => {
+                                    bar.style.width = width + '%';
+                                }, 200);
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            document.querySelectorAll('.skill-category, .soft-skill-card, .pm-skill-item, .tool-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Stagger animation for cards
+            document.querySelectorAll('.soft-skills-grid .soft-skill-card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            document.querySelectorAll('.pm-skills-grid .pm-skill-item').forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Add hover effects for interactive elements
+            document.querySelectorAll('.pm-skill-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.borderLeftWidth = '6px';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.borderLeftWidth = '4px';
+                });
+            });
+
+            // Initialize skill bar animations
+            setTimeout(() => {
+                animateSkillBars();
+            }, 1000);
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + '+';
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + '+';
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger counter animation on scroll
+        const statsSection = document.querySelector('.skills-overview');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
