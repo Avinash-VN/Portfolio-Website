@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications - Avinash Nagaraja</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-red: #dc3545;
+            --primary-blue: #0d6efd;
+            --dark-blue: #1e3a5f;
+            --primary-black: #2c2c2c;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            --green: #28a745;
+            --orange: #fd7e14;
+            --purple: #6f42c1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            padding-top: 80px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--gradient);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 80px 0 60px;
+            background: var(--light-gray);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        /* Statistics Section */
+        .cert-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .stat-card:nth-child(2) {
+            border-top-color: var(--green);
+        }
+
+        .stat-card:nth-child(3) {
+            border-top-color: var(--primary-red);
+        }
+
+        .stat-card:nth-child(4) {
+            border-top-color: var(--orange);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card:nth-child(2) .stat-number {
+            color: var(--green);
+        }
+
+        .stat-card:nth-child(3) .stat-number {
+            color: var(--primary-red);
+        }
+
+        .stat-card:nth-child(4) .stat-number {
+            color: var(--orange);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Category Sections */
+        .category-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .category-section:nth-child(odd) {
+            background: var(--light-gray);
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .category-icon-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        .cloud-category .category-icon-large {
+            background: var(--primary-blue);
+        }
+
+        .analytics-category .category-icon-large {
+            background: var(--green);
+        }
+
+        .security-category .category-icon-large {
+            background: var(--primary-red);
+        }
+
+        .management-category .category-icon-large {
+            background: var(--orange);
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+            font-weight: 700;
+        }
+
+        .category-description {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .cert-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .cloud-category .cert-card {
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .analytics-category .cert-card {
+            border-left: 5px solid var(--green);
+        }
+
+        .security-category .cert-card {
+            border-left: 5px solid var(--primary-red);
+        }
+
+        .management-category .cert-card {
+            border-left: 5px solid var(--orange);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .cert-header {
+            padding: 2rem 2rem 1rem;
+            position: relative;
+        }
+
+        .cert-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .cloud-category .cert-icon {
+            background: var(--primary-blue);
+        }
+
+        .analytics-category .cert-icon {
+            background: var(--green);
+        }
+
+        .security-category .cert-icon {
+            background: var(--primary-red);
+        }
+
+        .management-category .cert-icon {
+            background: var(--orange);
+        }
+
+        .cert-provider {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .cloud-category .cert-provider {
+            color: var(--primary-blue);
+        }
+
+        .analytics-category .cert-provider {
+            color: var(--green);
+        }
+
+        .security-category .cert-provider {
+            color: var(--primary-red);
+        }
+
+        .management-category .cert-provider {
+            color: var(--orange);
+        }
+
+        .cert-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .cert-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-details {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .cert-footer {
+            padding: 0 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cert-date {
+            background: var(--light-gray);
+            color: var(--primary-black);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .cert-badge {
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .cloud-category .cert-badge {
+            background: var(--primary-blue);
+        }
+
+        .analytics-category .cert-badge {
+            background: var(--green);
+        }
+
+        .security-category .cert-badge {
+            background: var(--primary-red);
+        }
+
+        .management-category .cert-badge {
+            background: var(--orange);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cert-header {
+                padding: 1.5rem;
+            }
+
+            .cert-footer {
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            .cert-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .category-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Avinash Nagaraja</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="certifications.html" class="active">Certifications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Professional Certifications</h1>
+            <p class="page-subtitle">Continuous learning and professional development journey</p>
+            
+            <div class="cert-stats">
+                <div class="stat-card">
+                    <span class="stat-number">11+</span>
+                    <span class="stat-label">Total Certifications</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Cloud Platforms</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Data Analytics</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Project Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Platforms Category -->
+    <section class="category-section cloud-category">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon-large">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h2 class="category-title">Cloud Platforms</h2>
+                <p class="category-description">
+                    Expertise in major cloud platforms including AWS, Microsoft Azure, and cloud computing fundamentals. 
+                    These certifications validate skills in cloud architecture, services deployment, and best practices.
+                </p>
+            </div>
+            
+            <div class="cert-grid">
+                <!-- AWS Solutions Architect -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="cert-provider">Amazon Web Services</div>
+                        <h3 class="cert-name">AWS Certified Solutions Architect – Associate</h3>
+                        <p class="cert-description">
+                            Validates expertise in designing and deploying scalable, highly available systems on AWS.
+                        </p>
+                        <p class="cert-details">
+                            This certification demonstrates knowledge of AWS architectural principles and services, including compute, networking, storage, and database services. It covers designing fault-tolerant and cost-effective systems that meet business requirements.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2022</span>
+                        <span class="cert-badge">Associate</span>
+                    </div>
+                </div>
+
+                <!-- Azure Fundamentals -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="cert-provider">Microsoft</div>
+                        <h3 class="cert-name">Azure Fundamentals (AZ-900)</h3>
+                        <p class="cert-description">
+                            Foundational knowledge of Microsoft Azure cloud services and core concepts.
+                        </p>
+                        <p class="cert-details">
+                            Covers fundamental cloud concepts, core Azure services, security, privacy, compliance, trust, and Azure pricing and support. Essential for understanding Microsoft's cloud platform and its service offerings.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2022</span>
+                        <span class="cert-badge">Fundamentals</span>
+                    </div>
+                </div>
+
+                <!-- Cloud Computing NPTEL -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="cert-provider">IIT Kharagpur</div>
+                        <h3 class="cert-name">Cloud Computing - NPTEL Online Certification</h3>
+                        <p class="cert-description">
+                            Comprehensive academic course on cloud computing concepts and architectures.
+                        </p>
+                        <p class="cert-details">
+                            This certification from IIT Kharagpur covers theoretical foundations of cloud computing, including distributed systems, virtualization, service models (IaaS, PaaS, SaaS), and cloud deployment strategies with hands-on experience.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2021</span>
+                        <span class="cert-badge">Certified</span>
+                    </div>
+                </div>
+
+                <!-- Networking Certification -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="cert-provider">Technology Institute</div>
+                        <h3 class="cert-name">Certified Course Associate - Networking 1.0</h3>
+                        <p class="cert-description">
+                            Foundational networking skills essential for cloud infrastructure management.
+                        </p>
+                        <p class="cert-details">
+                            Covers network protocols, topology design, routing and switching concepts, and network troubleshooting methodologies. These skills are fundamental for designing and managing cloud network architectures effectively.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2020</span>
+                        <span class="cert-badge">Associate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Analytics Category -->
+    <section class="category-section analytics-category">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon-large">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h2 class="category-title">Data Analytics & Visualization</h2>
+                <p class="category-description">
+                    Proficiency in leading business intelligence and data visualization tools. 
+                    These certifications demonstrate ability to transform raw data into meaningful insights and interactive dashboards.
+                </p>
+            </div>
+            
+            <div class="cert-grid">
+                <!-- Power BI -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="cert-provider">Udemy</div>
+                        <h3 class="cert-name">Microsoft Power BI Complete Course</h3>
+                        <p class="cert-description">
+                            Comprehensive training in Microsoft Power BI for business intelligence and data visualization.
+                        </p>
+                        <p class="cert-details">
+                            Covers data modeling, DAX formulas, creating interactive dashboards, advanced visualizations, and publishing reports to Power BI service. Includes hands-on projects with real-world datasets and best practices for enterprise BI solutions.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2022</span>
+                        <span class="cert-badge">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Tableau -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="cert-provider">Udemy</div>
+                        <h3 class="cert-name">Tableau Desktop Specialist Course</h3>
+                        <p class="cert-description">
+                            Advanced data visualization and storytelling using Tableau Desktop and Tableau Public.
+                        </p>
+                        <p class="cert-details">
+                            Comprehensive training in creating complex visualizations, calculated fields, parameters, and interactive dashboards. Focus on data storytelling techniques and advanced analytics features for deriving actionable business insights.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2022</span>
+                        <span class="cert-badge">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Infrastructure Category -->
+    <section class="category-section security-category">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon-large">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2 class="category-title">Security & Infrastructure</h2>
+                <p class="category-description">
+                    Expertise in cloud security, data protection, and enterprise storage solutions. 
+                    These certifications ensure comprehensive knowledge of security best practices and infrastructure management.
+                </p>
+            </div>
+            
+            <div class="cert-grid">
+                <!-- Cloud Security Knowledge -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="cert-provider">Cloud Security Alliance</div>
+                        <h3 class="cert-name">Certificate of Cloud Security Knowledge v.4 (CCSK)</h3>
+                        <p class="cert-description">
+                            Industry-recognized certification for cloud security fundamentals and best practices.
+                        </p>
+                        <p class="cert-details">
+                            Covers cloud security architecture, governance, risk management, compliance, and legal considerations. Validates understanding of security controls across different cloud service models and deployment types, essential for secure cloud implementations.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2022</span>
+                        <span class="cert-badge">Certified</span>
+                    </div>
+                </div>
+
+                <!-- Dell Information Storage -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="cert-provider">Dell Technologies</div>
+                        <h3 class="cert-name">Information Storage and Management</h3>
+                        <p class="cert-description">
+                            Comprehensive knowledge of enterprise storage systems and data management strategies.
+                        </p>
+                        <p class="cert-details">
+                            Covers storage technologies, data protection methods, backup and recovery strategies, and storage networking. Includes modern storage architectures, cloud storage integration, and data governance practices for enterprise environments.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2021</span>
+                        <span class="cert-badge">Certified</span>
+                    </div>
+                </div>
+
+                <!-- Dell Specialist -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="cert-provider">Dell Technologies</div>
+                        <h3 class="cert-name">Specialist - Midrange Storage Solutions</h3>
+                        <p class="cert-description">
+                            Specialized expertise in designing and implementing Dell midrange storage solutions.
+                        </p>
+                        <p class="cert-details">
+                            Focuses on Dell Unity, SC Series, and PowerVault storage systems. Covers performance optimization, scalability planning, and integration with virtualized environments for mid-market and enterprise storage requirements.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2021</span>
+                        <span class="cert-badge">Specialist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Management Category -->
+    <section class="category-section management-category">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon-large">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h2 class="category-title">Project Management & Methodologies</h2>
+                <p class="category-description">
+                    Proficiency in Agile, Scrum, and traditional project management methodologies for effective project delivery and team leadership. 
+                    These certifications validate skills in product ownership, project planning, and comprehensive project management practices.
+                </p>
+            </div>
+            
+            <div class="cert-grid">
+                <!-- Google Project Management Certificate -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="cert-provider">Coursera - Google</div>
+                        <h3 class="cert-name">Google Project Management Certificate (v1)</h3>
+                        <p class="cert-description">
+                            Comprehensive six-course program covering both traditional and agile project management methodologies.
+                        </p>
+                        <p class="cert-details">
+                            Completed hands-on, practice-based assessments designed for entry-level project management roles. Covers project initiation, planning, execution, and delivery using both traditional waterfall and agile approaches with real-world applications and tools.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2023</span>
+                        <span class="cert-badge">Certified</span>
+                    </div>
+                </div>
+
+                <!-- Professional Scrum Product Owner -->
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="cert-provider">Scrum.org</div>
+                        <h3 class="cert-name">Professional Scrum Product Owner (PSPO I)</h3>
+                        <p class="cert-description">
+                            Validates understanding of the Scrum framework from a Product Owner perspective and value-driven development.
+                        </p>
+                        <p class="cert-details">
+                            Covers product backlog management, stakeholder collaboration, value maximization, and empirical product planning. Emphasizes understanding of Scrum theory, practices, and the Product Owner accountabilities within the Scrum framework for successful product delivery.
+                        </p>
+                    </div>
+                    <div class="cert-footer">
+                        <span class="cert-date">2023</span>
+                        <span class="cert-badge">Certified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/Avinash-VN/Avinash-VN" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/avinashvn31" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://instagram.com/yourusername" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:avinashvn.31@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Avinash Nagaraja. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add scroll effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    nav.style.background = 'rgba(13, 110, 253, 0.95)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                } else {
+                    nav.style.background = 'var(--gradient)';
+                    nav.style.backdropFilter = 'none';
+                }
+            });
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe certification cards and stat cards
+            document.querySelectorAll('.cert-card, .stat-card, .category-header').forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px)';
+                element.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
