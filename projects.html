@@ -326,6 +326,62 @@
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
         }
 
+        /* More Projects Button */
+
+        .more-projects-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #ffffff;
+            background: linear-gradient(145deg, #08b0e3, #90fbff);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .more-projects-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .more-projects-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(79, 70, 229, 0.4);
+            background: linear-gradient(145deg, #5785a1, #78bbc7);
+        }
+
+        .more-projects-btn:hover::before {
+            left: 100%;
+        }
+
+        .more-projects-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .arrow {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .more-projects-btn:hover .arrow {
+            transform: translateX(4px);
+        }
+
         /* Footer */
         footer {
             background: var(--primary-black);
@@ -635,7 +691,7 @@
                 </div>
 
                 <!-- HR Analytics Project -->
-                <div class="project-card" data-category="dashboard analytics">
+                <div class="project-card" data-category="dashboard">
                     <div class="project-image">
                         <i class="fas fa-users"></i>
                     </div>
@@ -674,8 +730,93 @@
                         </div>
                     </div>
                 </div>
+                <!-- Predective Analytics -->
+                <div class="project-card" data-category="analytics">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Price Trend Analysis and Prediction</h3>
+                        <p class="project-description">
+                            This project aims to analyze the cost trend of Toyota Corolla over the years and predict future prices using various machine learning models.
+                        </p>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul class="features-list">
+                                <li>Models used - Linear Regression, K-Nearest Neighbors (KNN), Random Forest, and Decision Tree</li>
+                                <li>Collect historical price data of Toyota Corolla from various sources.</li>
+                                <li>Analyze the historical price trend of Toyota Corolla.</li>
+                                <li>Evaluate the performance of each model using metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and R-squared.</li>
+                                <li>detailed analysis and comparison of the performance of each model</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Data Prep</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Predective Modeling</span>
+                            <span class="tech-tag">SK-Learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Avinash-VN/MyProjects/blob/main/Data_Analysis/ToyotaCorolla_Data%20Analysis.ipynb" class="project-btn">
+                                <i class="fas fa-eye"></i>
+                                View Dashboard
+                            </a>
+                            <a href="https://github.com/Avinash-VN/MyProjects/tree/main/Data_Analysis" class="project-btn secondary">
+                                <i class="fas fa-download"></i>
+                                Project Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Employee Analytics -->
+                <div class="project-card" data-category="dashboard">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Employee Analytics</h3>
+                        <p class="project-description">
+                            The dashboard visualizes key metrics related to employee distribution, departmental breakdowns, financial data, and employee status.
+                        </p>
+                        <div class="project-features">
+                            <h4>Key Features:</h4>
+                            <ul class="features-list">
+                                <li>Uses multiple visualization to display and analyse various metrics.</li>
+                                <li>Multiple Filters and slicers used to give control over data to users.</li>
+                                <li>Drill downs used for in depth analysis.</li>
+                                <li>DAX queries used to calculate values.</li>
+                                <li>Various measures and calculated fields used.</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Data Prep</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Mesures & Calculated Fileds</span>
+                            <span class="tech-tag">Filters, Slicers & Drill Downs</span>
+                            <span class="tech-tag">DAX Queries</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Avinash-VN/MyProjects/blob/main/PBI%20-%20Employee%20Analytics/Employee_Analytics.pdf" class="project-btn">
+                                <i class="fas fa-eye"></i>
+                                View Dashboard
+                            </a>
+                            <a href="https://github.com/Avinash-VN/MyProjects/tree/main/PBI%20-%20Employee%20Analytics" class="project-btn secondary">
+                                <i class="fas fa-download"></i>
+                                Project Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+
+    <section style="text-align: center; margin-bottom: 60px;">
+        <a href="https://github.com/Avinash-VN/MyProjects/tree/main" class="more-projects-btn" target="_blank">
+            More Projects
+            <span class="arrow">→</span>
+        </a>
     </section>
 
     <!-- Footer -->
