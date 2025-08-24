@@ -148,7 +148,7 @@
         }
 
         .travel-image {
-            background-image: url('Assets\14kft.jpg');
+            background-image: url('Assets/14kft.jpg');
         }
 
         .hobby-image::before {
@@ -265,7 +265,8 @@
 
         .gallery-container {
             position: relative;
-            max-width: 900px;
+            max-width: 1200px;
+            width: 95%;
             margin: 0 auto;
             background: var(--white);
             border-radius: 20px;
@@ -275,7 +276,7 @@
 
         .gallery-slider {
             position: relative;
-            height: 500px;
+            height: 600px;
             overflow: hidden;
         }
 
@@ -285,8 +286,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
             opacity: 0;
             transition: opacity 1s ease-in-out;
             display: flex;
@@ -305,7 +308,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
+            pointer-events: none;
         }
 
         .slide-placeholder {
@@ -465,6 +469,18 @@
             transform: scale(1.2);
         }
 
+        /* Error Message for Missing Images */
+        .image-error {
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -501,7 +517,11 @@
             }
 
             .gallery-slider {
-                height: 300px;
+                height: 400px;
+            }
+
+            .gallery-container {
+                width: 98%;
             }
 
             .gallery-arrows {
@@ -527,6 +547,16 @@
             .instagram-btn {
                 padding: 12px 24px;
                 font-size: 1rem;
+            }
+
+            .gallery-slider {
+                height: 300px;
+            }
+
+            .gallery-container {
+                width: 100%;
+                margin: 0 1rem;
+                max-width: calc(100% - 2rem);
             }
         }
     </style>
@@ -559,7 +589,7 @@
     <!-- Hobbies Section -->
     <section class="hobbies-section">
         <div class="container">
-                            <div class="hobbies-grid">
+            <div class="hobbies-grid">
                 <!-- Cricket Section -->
                 <div class="hobby-card">
                     <div class="hobby-image cricket-image">
@@ -573,7 +603,7 @@
                             Cricket
                         </h2>
                         <p class="hobby-description">
-                            Cricket has been my passion since I was a kid, and it’s more than just a sport for me—it’s a way of life. From scoring my highest knock of 133 runs to leading teams as captain, the game has taught me strategy, teamwork, and resilience. Whether I’m batting, bowling, or diving in the field, cricket reminds me that every small effort counts toward the bigger victory. And yes, the love for the game still continues as I play tournaments here in Buffalo!
+                            Cricket has been my passion since I was a kid, and it's more than just a sport for me—it's a way of life. From scoring my highest knock of 133 runs to leading teams as captain, the game has taught me strategy, teamwork, and resilience. Whether I'm batting, bowling, or diving in the field, cricket reminds me that every small effort counts toward the bigger victory. And yes, the love for the game still continues as I play tournaments here in Buffalo!
                         </p>
                         <div class="hobby-highlights">
                             <h4>Highlight of my Cricketing Life:</h4>
@@ -601,7 +631,7 @@
                             Travelling
                         </h2>
                         <p class="hobby-description">
-                            I enjoy traveling and exploring the beauty of nature. Whether it’s discovering hidden trails, experiencing diverse landscapes, or immersing myself in new cultures, travel inspires me and fuels my creativity. Each journey is an opportunity to learn, grow, and appreciate the world around us.
+                            I enjoy traveling and exploring the beauty of nature. Whether it's discovering hidden trails, experiencing diverse landscapes, or immersing myself in new cultures, travel inspires me and fuels my creativity. Each journey is an opportunity to learn, grow, and appreciate the world around us.
                         </p>
                         <div class="hobby-highlights">
                             <h4>Travel Experiences:</h4>
@@ -630,7 +660,7 @@
             <div class="gallery-container">
                 <div class="gallery-slider">
                     <!-- Gallery Slide 1 - travel -->
-                    <div class="gallery-slide active" style="background-image: url('Assets\Sunrise.jpg');">
+                    <div class="gallery-slide active" style="background-image: url('Assets/Sunrise.jpg');">
                         <div class="slide-text">
                             <div class="slide-title">Sunrise at 12,500 Ft</div>
                             <div class="slide-description">Witnessing the sunrise at the peak of Kedarkantha Himalayan Mountain</div>
@@ -638,23 +668,23 @@
                     </div>
 
                     <!-- Gallery Slide 2 - Travel -->
-                    <div class="gallery-slide" style="background-image: url('Assets\Kardhungla.jpg');">
+                    <div class="gallery-slide" style="background-image: url('Assets/Kardhungla.jpg');">
                         <div class="slide-text">
-                            <div class="slide-title">Kardhung La - The world second higest motorable road</div>
-                            <div class="slide-description">Rides at 17,500 ft , unforgetable experience</div>
+                            <div class="slide-title">Kardhung La - The world second highest motorable road</div>
+                            <div class="slide-description">Rides at 17,500 ft, unforgettable experience</div>
                         </div>
                     </div>
 
                     <!-- Gallery Slide 3 - Cricket -->
-                    <div class="gallery-slide" style="background-image: url('Assets\cricket.jpg');">
+                    <div class="gallery-slide" style="background-image: url('Assets/cricket.jpg');">
                         <div class="slide-text">
                             <div class="slide-title">Cricket</div>
-                            <div class="slide-description">Batting a local tournatment</div>
+                            <div class="slide-description">Batting a local tournament</div>
                         </div>
                     </div>
 
                     <!-- Gallery Slide 4 - Travel -->
-                    <div class="gallery-slide" style="background-image: url('Assets\Scuba.JPG');">
+                    <div class="gallery-slide" style="background-image: url('Assets/Scuba.JPG');">
                         <div class="slide-text">
                             <div class="slide-title">First underwater experience</div>
                             <div class="slide-description">Scuba diving in the islands of Andaman & Nicobar</div>
@@ -662,7 +692,7 @@
                     </div>
 
                     <!-- Gallery Slide 5 - Cricket -->
-                    <div class="gallery-slide" style="background-image: url('Assets\paragliding.JPG');">
+                    <div class="gallery-slide" style="background-image: url('Assets/paragliding.JPG');">
                         <div class="slide-text">
                             <div class="slide-title">Paragliding</div>
                             <div class="slide-description">Flying in the Himalayan Valleys</div>
@@ -670,34 +700,36 @@
                     </div>
 
                     <!-- Gallery Slide 6 - Travel -->
-                    <div class="gallery-slide" style="background-image: url('Assets\Austin.jpg');">
+                    <div class="gallery-slide" style="background-image: url('Assets/Austin.jpg');">
                         <div class="slide-text">
                             <div class="slide-title">Scenic Views</div>
                             <div class="slide-description">Vibrant overlooks in Austin</div>
                         </div>
                     </div>
-                    <!-- Gallery Slide 7 - Stars -->
-                    <div class="gallery-slide" style="background-image: url('Assets\Stars.dng');">
+
+                    <!-- Gallery Slide 7 - Stars (converted from DNG) -->
+                    <div class="gallery-slide" style="background-image: url('Assets/Stars.jpg');">
                         <div class="slide-text">
                             <div class="slide-title">Star Gazing</div>
                             <div class="slide-description">Spending the night watching the stars and the milky way</div>
                         </div>
                     </div>
+
                     <!-- Gallery Slide 8 - Travel -->
-                    <div class="gallery-slide" style="background-image: url('Assets\Whitesands.jpg');">
+                    <div class="gallery-slide" style="background-image: url('Assets/Whitesands.jpg');">
                         <div class="slide-text">
                             <div class="slide-title">White Sands National Park</div>
                             <div class="slide-description">View of the Sand Dunes</div>
                         </div>
                     </div>
-                     <!-- Gallery Slide 9 - Ride -->
-                    <div class="gallery-slide" style="background-image: url('Assets\Leh.jpg');">
+
+                    <!-- Gallery Slide 9 - Ride -->
+                    <div class="gallery-slide" style="background-image: url('Assets/Leh.jpg');">
                         <div class="slide-text">
-                            <div class="slide-title">Ride of a life time</div>
+                            <div class="slide-title">Ride of a lifetime</div>
                             <div class="slide-description">Bengaluru to Leh Ride - Covering 10 states and 3K + Miles</div>
                         </div>
                     </div>
-                    
                 </div>
 
                 <!-- Navigation Arrows -->
@@ -708,7 +740,7 @@
                     <i class="fas fa-chevron-right"></i>
                 </button>
 
-                <!-- Navigation Dots -->
+                <!-- Navigation Dots - Fixed to match 9 slides -->
                 <div class="gallery-nav">
                     <span class="nav-dot active" onclick="currentSlide(1)"></span>
                     <span class="nav-dot" onclick="currentSlide(2)"></span>
@@ -716,6 +748,9 @@
                     <span class="nav-dot" onclick="currentSlide(4)"></span>
                     <span class="nav-dot" onclick="currentSlide(5)"></span>
                     <span class="nav-dot" onclick="currentSlide(6)"></span>
+                    <span class="nav-dot" onclick="currentSlide(7)"></span>
+                    <span class="nav-dot" onclick="currentSlide(8)"></span>
+                    <span class="nav-dot" onclick="currentSlide(9)"></span>
                 </div>
             </div>
         </div>
@@ -767,7 +802,7 @@
         // Auto-advance slides
         setInterval(() => {
             changeSlide(1);
-        }, 5000);
+        }, 50000);
 
         function changeSlide(n) {
             showSlide(slideIndex += n);
@@ -795,12 +830,26 @@
             dots.forEach(dot => dot.classList.remove('active'));
             
             // Show current slide and activate corresponding dot
-            slides[slideIndex - 1].classList.add('active');
-            dots[slideIndex - 1].classList.add('active');
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].classList.add('active');
+            }
+            if (dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add('active');
+            }
         }
 
-        // Add scroll effects
+        // Check for image loading errors and provide feedback
         document.addEventListener('DOMContentLoaded', function() {
+            // Test image loading
+            const testImage = new Image();
+            testImage.onload = function() {
+                console.log('Images are loading correctly');
+            };
+            testImage.onerror = function() {
+                console.log('Image loading failed - check file paths');
+            };
+            testImage.src = 'Assets/Sunrise.jpg';
+
             // Navbar scroll effect
             window.addEventListener('scroll', () => {
                 const nav = document.querySelector('nav');
@@ -839,4 +888,3 @@
     </script>
 </body>
 </html>
-                
