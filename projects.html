@@ -11,6 +11,7 @@
             --primary-red: #dc3545;
             --primary-blue: #0d6efd;
             --dark-blue: #1e3a5f;
+            --primary-orange: #fd7e14;
             --primary-black: #2c2c2c;
             --light-gray: #f8f9fa;
             --white: #ffffff;
@@ -295,6 +296,14 @@
             transform: translateY(-2px);
         }
 
+        .project-btn.in-progress {
+            border-color: var(--primary-orange);
+            color: var(--white);
+            background: var(--primary-orange);
+            cursor: default;
+            pointer-events: none;
+        }
+
         .project-btn.secondary {
             border-color: var(--primary-orange);
             color: var(--primary-orange);
@@ -481,6 +490,7 @@
             <div class="tabs-container">
                 <button class="tab-btn active" onclick="filterProjects('all')">All Projects</button>
                 <button class="tab-btn" onclick="filterProjects('ai')">AI & ML</button>
+                <button class="tab-btn" onclick="filterProjects('data-engineering')">Data Engineering</button>
                 <button class="tab-btn" onclick="filterProjects('dashboard')">Dashboards</button>
                 <button class="tab-btn" onclick="filterProjects('mobile')">Mobile Apps</button>
                 <button class="tab-btn" onclick="filterProjects('iot')">IoT</button>
@@ -558,17 +568,15 @@
                             <span class="tech-tag">Geolocation & Timezone APIs (Google Maps Platform)</span>
                             <span class="tech-tag">Frontend Interface (Streamlit / React)</span>
                         </div>
-                        <!--
                         <div class="project-links">
-                            <a href="https://github.com/Avinash-VN/ChatBot" target="_blank" class="project-btn">
+                            <!-- <a href="https://github.com/Avinash-VN/ChatBot" target="_blank" class="project-btn">
                                 <i class="fab fa-github"></i>
                                 View Code
-                            </a>
-                        -->
-                         <a href="#" class="project-btn secondary">
-                                <i class="fas fa-external-link-alt"></i>
+                            </a> -->
+                            <span class="project-btn in-progress">
+                                <i class="fas fa-clock"></i>
                                 In Progress
-                            </a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -694,12 +702,6 @@
                     </div>
                 </div>
 
-                <!-- Analytics Project -->
-
-                <div class="project-card" data-category="analytics">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
                 <!-- Snowflake Data Engineering Project -->
                 <div class="project-card" data-category="data-engineering">
                     <div class="project-image">
@@ -730,11 +732,17 @@
                         <div class="project-links">
                             <a href="https://github.com/Avinash-VN/Snowflake-Retail-Project" target="_blank" class="project-btn">
                                 <i class="fab fa-github"></i>
-                                View Code
+                                View project
                             </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Analytics Project -->
+                <div class="project-card" data-category="analytics">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <div class="project-content">
                         <h3 class="project-title">Crime Trends Analysis</h3>
                         <p class="project-description">
@@ -830,7 +838,7 @@
                             <span class="tech-tag">Data Prep</span>
                             <span class="tech-tag">Pandas</span>
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Predective Modeling</span>
+                            <span class="tech-tag">Predictive Modeling</span>
                             <span class="tech-tag">SK-Learn</span>
                         </div>
                         <div class="project-links">
@@ -868,7 +876,7 @@
                         <div class="project-tech">
                             <span class="tech-tag">Data Prep</span>
                             <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Mesures & Calculated Fileds</span>
+                            <span class="tech-tag">Measures & Calculated Fields</span>
                             <span class="tech-tag">Filters, Slicers & Drill Downs</span>
                             <span class="tech-tag">DAX Queries</span>
                         </div>
